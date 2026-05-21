@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS bookmarks (
+  id BIGSERIAL PRIMARY KEY,
+  link TEXT NOT NULL,
+  title TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
