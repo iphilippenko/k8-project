@@ -19,8 +19,11 @@ WORKDIR /usr/share/nginx/html
 
 COPY client/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/client/dist ./
+COPY client/config.js.template ./config.js.template
+COPY client/docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
-
+CMD ["/docker-entrypoint.sh"]

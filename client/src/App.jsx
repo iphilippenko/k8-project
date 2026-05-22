@@ -5,7 +5,11 @@ const initialForm = {
   title: ''
 };
 
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000';
+const runtimeConfig = window.__APP_CONFIG__ ?? {};
+const apiBaseUrl =
+  runtimeConfig.VITE_API_BASE_URL ??
+  import.meta.env.VITE_API_BASE_URL ??
+  'http://localhost:3000';
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   dateStyle: 'medium',
   timeStyle: 'short'
