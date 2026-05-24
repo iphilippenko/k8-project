@@ -10,6 +10,7 @@ RUN npm ci --workspace server
 ENV NODE_ENV=production
 
 COPY server/src ./server/src
+COPY server/db ./server/db
 
 EXPOSE 3000
 

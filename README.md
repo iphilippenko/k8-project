@@ -34,13 +34,13 @@ npm install
 
 ## Initialize Database
 
-Create the `bookmarks` database and apply the schema in [server/db/init.sql](/server/db/init.sql).
+Create the `bookmarks` database and run the migrations in [server/db/migrations](/server/db/migrations).
 
 Example:
 
 ```bash
 createdb bookmarks
-psql "$DATABASE_URL" -f server/db/init.sql
+npm run migrate --workspace server
 ```
 
 ## Run Server
